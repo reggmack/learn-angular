@@ -6,27 +6,16 @@ myApp.controller('mainController', ['$scope', '$filter', '$timeout', function($s
     
     $scope.lowercasehandle = function() {
         return $filter('lowercase')($scope.handle);
-    }
+    };
     
-    $scope.$watch('handle', function(newValue, oldValue ) {
-        
-        console.info('Changed!');
-        console.log('Old:' + oldValue);
-        console.log('New:' + newValue);
-        
-    });
+    $scope.characters = 5;
     
-    $timeout(function() {
-        
-        $scope.handle = 'newtwitterhandle';
-        console.log('Scope changed!');
-        
-    }, 3000)
+    $scope.rules = [
+        { rulename: "Must be 5 characters" },
+        { rulename: "Must not be used elsewhere" },
+        { rulename: "Must be cool" }
+    ];
     
+    console.log($scope.rules);
     
-    
-//    $timeout(function() {
-//       $scope.name = 'Everybody'; 
-//    }, 3000);
-    
-}]);
+}]); //end App
