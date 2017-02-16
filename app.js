@@ -33,7 +33,10 @@ myApp.service('nameService', function() {
 
 myApp.controller('mainController', ['$scope', '$log', 'nameService', function($scope, $log, nameService) {
     
-
+    $scope.person = {
+        name: 'John Doe',
+        address: '555 Main St., New York NY 11111'
+    }
     
 }]);
 
@@ -48,6 +51,10 @@ myApp.directive("searchResults", function() {
         
         restrict: 'AECM',
         templateUrl: 'directives/searchresults.html',
-        replace: true
+        replace: true,
+        scope: {
+            personName: "@",
+            personAddress: "@"
+        }
     }
 });
