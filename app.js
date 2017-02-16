@@ -1,10 +1,11 @@
-// MODULE
 var myApp = angular.module('myApp', []);
 
-// CONTROLLERS
-angularApp.controller('mainController', ['$scope', function ($scope) {
+myApp.controller('mainController', function($scope, $log, $filter) {
     
-}]);
-
-
-
+    $scope.name= 'John';
+    $scope.formattedname = $filter('uppercase')($scope.name);
+    
+    $log.info($scope.name);
+    $log.info($scope.formattedname);
+    
+});
