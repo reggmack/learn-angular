@@ -1,7 +1,11 @@
 var myApp = angular.module('myApp', ['ngMessages', 'ngResource']);
 
-myApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
+myApp.controller('mainController', ['$scope', '$timeout', function($scope, $timeout) {
     
-    $log.info($scope);
+    $scope.name = 'Mack';
+    
+    $timeout(function() {
+       $scope.name = 'Everybody'; 
+    }, 3000);
     
 }]);
