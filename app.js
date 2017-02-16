@@ -1,11 +1,23 @@
-var myApp = angular.module('myApp', ['ngMessages', 'ngResource']);
+var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', ['$scope', '$filter', '$timeout', function($scope, $filter, $timeout) {
+myApp.controller('mainController', ['$scope', '$filter', function($scope, $filter) {
     
-    $scope.alertClick = function() {
-        alert("Clicked!")
+    $scope.handle = '';
+    
+    $scope.lowercasehandle = function() {
+        return $filter('lowercase')($scope.handle);
     };
     
-    $scope.name = 'John Doe';
+    $scope.characters = 5;
     
-}]); //end App
+    $scope.rules = [
+      
+        { rulename: "Must be 5 characters" },
+        { rulename: "Must not be used elsewhere" },
+        { rulename: "Must be cool" }
+        
+    ];
+    
+    console.log($scope.rules);
+    
+}]);
