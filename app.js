@@ -78,26 +78,16 @@ myApp.directive("searchResults", function() {
             personObject: "=",
             formattedAddressFunction: "&"
         },
-        compile: function(elem, attrs) {
+        link: function(scope, elements, attrs) {
             
-            console.log('Compiling...');
-            //elem.removeAttr('class');
-            console.log(elem.html());
-                        
-                return {
-                    
-                    post: function(scope, elements, attrs) {
-                        console.log('Post-linking...');
-                        
-                        console.log(scope);
-                        if (scope.personObject.name == 'Jane Doe') {
-                            elements.removeAttr('class');
-                        }
-                        console.log(elements);
-                    }
-
-                }
+            console.log('Linking...');
+            console.log(scope);
             
-        }
+            if (scope.personObject.name == 'Jane Doe') {
+                elements.removeAttr('class');
+            }
+            
+            console.log(elements);
+        }   
     }
 });
