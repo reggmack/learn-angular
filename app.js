@@ -77,6 +77,27 @@ myApp.directive("searchResults", function() {
         scope: {
             personObject: "=",
             formattedAddressFunction: "&"
+        },
+        compile: function(elem, attrs) {
+            
+            console.log('Compiling...');
+            //elem.removeAttr('class');
+            console.log(elem.html());
+                        
+                return {
+                    
+                    post: function(scope, elements, attrs) {
+                        console.log('Post-linking...');
+                        
+                        console.log(scope);
+                        if (scope.personObject.name == 'Jane Doe') {
+                            elements.removeAttr('class');
+                        }
+                        console.log(elements);
+                    }
+
+                }
+            
         }
     }
 });
